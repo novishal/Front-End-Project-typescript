@@ -63,4 +63,5 @@ During the development of this project, I encountered several challenges:
 5.2 Adding proper build and preview scripts in package.json resolved the issue.
 
 
-
+<!-- Here's a quick look at the project in the action -->
+![project Demo](public/Demo.gif)
