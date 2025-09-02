@@ -1,5 +1,6 @@
 import { render, screen, fireEvent } from "@testing-library/react";
 import { DataTable } from "./DataTable";
+import type { Column } from "./DataTable";
 
 interface User {
   id: number;
@@ -7,7 +8,7 @@ interface User {
   age: number;
 }
 
-const columns: Column<User>[] = [
+const columns: Column <User>[] = [
   { key: "name", title: "Name", dataIndex: "name", sortable: true },
   { key: "age", title: "Age", dataIndex: "age", sortable: true },
 ];
