@@ -1,5 +1,6 @@
-import { DataTable, Column } from "./components/DataTable/DataTable";
-import { InputField } from "./components/InputField/InputField";
+import React from "react";
+import { InputField } from "./components/InputField/inputField";
+import { DataTable, Column } from "./components/DataTable/datatable";
 
 interface User {
   id: number;
@@ -8,28 +9,26 @@ interface User {
   email: string;
 }
 
+const data: User[] = [
+  { id: 1, name: "Vishal", age: 25, email: "vishal@example.com" },
+  { id: 2, name: "Jason", age: 30, email: "jason@example.com" },
+  { id: 3, name: "Pablo", age: 22, email: "pablo@example.com" },
+];
+
+const columns: Column<User>[] = [
+  { key: "name", title: "Name", dataIndex: "name", sortable: true },
+  { key: "age", title: "Age", dataIndex: "age", sortable: true },
+  { key: "email", title: "Email", dataIndex: "email" },
+];
+
 function App() {
-  const columns: Column<User>[] = [
-    { key: "name", title: "Name", dataIndex: "name", sortable: true },
-    { key: "age", title: "Age", dataIndex: "age", sortable: true },
-    { key: "email", title: "Email", dataIndex: "email" },
-  ];
-
-  const data: User[] = [
-    { id: 1, name: "Alice", age: 25, email: "alice@example.com" },
-    { id: 2, name: "Bob", age: 30, email: "bob@example.com" },
-    { id: 3, name: "Charlie", age: 22, email: "charlie@example.com" },
-  ];
-
   return (
-    <div className="p-4">
-      {/* Render InputField */}
-      <InputField />
+    <div className="p-4 space-y-6">
+      <h1 className="text-xl font-bold">InputField Demo</h1>
+      <InputField label="Name" placeholder="Enter your name" />
 
-      {/* Render DataTable */}
-      <div className="mt-6">
-        <DataTable<User> data={data} columns={columns} selectable />
-      </div>
+      <h1 className="text-xl font-bold">DataTable Demo</h1>
+      <DataTable data={data} columns={columns} selectable onRowSelect={rows => console.log(rows)} />
     </div>
   );
 }
