@@ -65,3 +65,6 @@ During the development of this project, I encountered several challenges:
 
 <!-- Here's a quick look at the project in the action -->
 ![project Demo](public/Demo.gif)
+
+<!-- Here's a vercel link(Live Demo) -->
+You can view the deployed project here: [Vercel Link](https://front-end-project-typescript-cs3l3nlij.vercel.app)
