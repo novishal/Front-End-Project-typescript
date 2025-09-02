@@ -1,6 +1,8 @@
 import React from "react";
-import { InputField } from "./components/InputField/inputField";
-import { DataTable, Column } from "./components/DataTable/datatable";
+import { InputField } from "./components/InputField/InputField";
+import { DataTable } from "./components/DataTable/DataTable";
+import type { Column } from "./components/DataTable/DataTable";
+
 
 interface User {
   id: number;
@@ -28,9 +30,13 @@ function App() {
       <InputField label="Name" placeholder="Enter your name" />
 
       <h1 className="text-xl font-bold">DataTable Demo</h1>
-      <DataTable data={data} columns={columns} selectable onRowSelect={rows => console.log(rows)} />
+      <DataTable<User>
+        data={data}
+        columns={columns}
+        selectable
+        onRowSelect={(rows: User[]) => console.log(rows)}
+      />
     </div>
   );
 }
-
 export default App;
